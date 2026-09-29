@@ -1,0 +1,12 @@
+id,title,priority,createdAt,assignedAt,closedAt,disposition,rootCause,userAssigned
+W1,HD003_CrowdStrike_High_detection,80,1783414800000,1783415100000,1783418400000,True Positive,,Tier1
+W2,HD011_ProofPoint_TAP_threat_email_delivered,60,1783418400000,1783418520000,1783425600000,Benign Positive,,Tier1
+W3,HD011_ProofPoint_TAP_threat_email_delivered,,1783422000000,1783422060000,1783423800000,Benign Positive,,Tier1
+W4,HD003_CrowdStrike_High_detection,80,1783424800000,1783428400000,1783425400000,True Positive,,Tier3
+W5,Quarterly vendor ticket follow up,40,1783434800000,1783434860000,1783434920000,False Positive,,Tier1
+W6,Quarterly vendor ticket follow up,40,1783435800000,1783435860000,1783435920000,False Positive,,Tier1
+W7,HD005_CrowdStrike_Low_detection,75,1783444800000,1783444860000,1783446000000,Benign Positive,,Tier1
+W8,HD005_CrowdStrike_Low_detection,40,1783454800000,not a date,1783456000000,Benign Positive,,Tier1
+W8,HD005_CrowdStrike_Low_detection,40,1783454800000,1783454860000,1783456000000,Benign Positive,,Tier1
+W9,HD003_CrowdStrike_High_detection,80,1783994400000,1783994700000,1783998000000,True Positive,,Tier1
+W10,Informational heartbeat,-1,1783464800000,,1783464860000,Benign Positive,Automated closure,Tier1

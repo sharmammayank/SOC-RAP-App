@@ -1,0 +1,62 @@
+{
+  "name": "soc-rap-platform",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "db:push": "supabase db push",
+    "db:types": "supabase gen types typescript --linked > src/lib/database.types.ts",
+    "test:db": "node scripts/test-db.mjs"
+  },
+  "dependencies": {
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@fontsource/ibm-plex-sans": "^5.3.0",
+    "@fontsource/ibm-plex-sans-condensed": "^5.3.0",
+    "@radix-ui/react-dialog": "^1.1.23",
+    "@radix-ui/react-dropdown-menu": "^2.1.24",
+    "@radix-ui/react-popover": "^1.1.23",
+    "@radix-ui/react-tooltip": "^1.2.16",
+    "@supabase/supabase-js": "^2.117.2",
+    "@tanstack/react-query": "^5.104.0",
+    "clsx": "^2.1.1",
+    "echarts": "^6.1.0",
+    "lucide-react": "^1.48.0",
+    "pptxgenjs": "^4.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.18.4",
+    "sonner": "^2.0.8",
+    "tailwind-merge": "^3.7.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^22.20.4",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.7.0",
+    "embedded-postgres": "^18.4.0-beta.17",
+    "eslint": "^9.39.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "globals": "^17.12.0",
+    "pg": "^8.23.0",
+    "supabase": "^2.118.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~5.6",
+    "typescript-eslint": "^8.70.1",
+    "vite": "^6.4.3",
+    "vitest": "^5.0.2"
+  },
+  "allowScripts": {
+    "esbuild@0.25.12": true,
+    "fsevents@2.3.3": true,
+    "@embedded-postgres/darwin-arm64@18.4.0-beta.17": true
+  }
+}

@@ -1,0 +1,198 @@
+@import "tailwindcss";
+@import "@fontsource/ibm-plex-sans/400.css";
+@import "@fontsource/ibm-plex-sans/500.css";
+@import "@fontsource/ibm-plex-sans/600.css";
+@import "@fontsource/ibm-plex-sans-condensed/600.css";
+@import "@fontsource/ibm-plex-mono/400.css";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* Design tokens carried over from the MVP (navy #002855, accent #0057B8). Status colours follow spec §7.4:
+   green = MET / attained, red strictly for NOT MET and blocking, amber for non-blocking warnings, blue for standard metrics. */
+:root {
+  --bg: #f3f5f8;
+  --surface: #ffffff;
+  --surface-2: #f7f9fb;
+  --line: #dce2ea;
+  --line-strong: #c3ccd8;
+  --ink: #0e1726;
+  --ink-2: #435066;
+  --muted: #6b7686;
+  --accent: #0057b8;
+  --accent-ink: #ffffff;
+  --accent-soft: #e4eefa;
+  --navy: #002855;
+  --good-ink: #0b6b0b;
+  --good-bg: #e5f3e5;
+  --bad-ink: #b42c2c;
+  --bad-bg: #fbe8e8;
+  --warn-ink: #865700;
+  --warn-bg: #fdf2d8;
+  --s1: #2a78d6;
+  --s2: #eb6834;
+  --s3: #1baf7a;
+  --s4: #eda100;
+  --s5: #7a5cc4;
+  --prev: #b7c0cc;
+  --grid: #e6eaf0;
+  --heat-lo: #eaf2fc;
+  --heat-hi: #0d4a96;
+  --heat-flip: #ffffff;
+  --shadow: 0 1px 2px rgba(14, 23, 38, 0.06), 0 4px 16px rgba(14, 23, 38, 0.05);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0b111b;
+    --surface: #121a27;
+    --surface-2: #172131;
+    --line: #253149;
+    --line-strong: #34425e;
+    --ink: #e7ecf3;
+    --ink-2: #b4bfce;
+    --muted: #8c97a8;
+    --accent: #4d9bea;
+    --accent-ink: #06121f;
+    --accent-soft: #15304f;
+    --navy: #0a1a33;
+    --good-ink: #5ed35e;
+    --good-bg: #10301a;
+    --bad-ink: #f28282;
+    --bad-bg: #3b1719;
+    --warn-ink: #f3c150;
+    --warn-bg: #3a2e10;
+    --s1: #3987e5;
+    --s2: #d95926;
+    --s3: #199e70;
+    --s4: #c98500;
+    --s5: #9a80e0;
+    --prev: #3f4b60;
+    --grid: #1f2a3d;
+    --heat-lo: #172234;
+    --heat-hi: #8cbdf3;
+    --heat-flip: #06121f;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0b111b;
+  --surface: #121a27;
+  --surface-2: #172131;
+  --line: #253149;
+  --line-strong: #34425e;
+  --ink: #e7ecf3;
+  --ink-2: #b4bfce;
+  --muted: #8c97a8;
+  --accent: #4d9bea;
+  --accent-ink: #06121f;
+  --accent-soft: #15304f;
+  --navy: #0a1a33;
+  --good-ink: #5ed35e;
+  --good-bg: #10301a;
+  --bad-ink: #f28282;
+  --bad-bg: #3b1719;
+  --warn-ink: #f3c150;
+  --warn-bg: #3a2e10;
+  --s1: #3987e5;
+  --s2: #d95926;
+  --s3: #199e70;
+  --s4: #c98500;
+  --s5: #9a80e0;
+  --prev: #3f4b60;
+  --grid: #1f2a3d;
+  --heat-lo: #172234;
+  --heat-hi: #8cbdf3;
+  --heat-flip: #06121f;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-navy: var(--navy);
+  --color-good: var(--good-ink);
+  --color-good-bg: var(--good-bg);
+  --color-bad: var(--bad-ink);
+  --color-bad-bg: var(--bad-bg);
+  --color-warn: var(--warn-ink);
+  --color-warn-bg: var(--warn-bg);
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-head: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --shadow-card: var(--shadow);
+}
+
+@layer base {
+  html,
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-head);
+    font-weight: 600;
+    text-wrap: balance;
+    letter-spacing: 0.005em;
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  button:disabled {
+    cursor: not-allowed;
+  }
+  input,
+  select,
+  textarea {
+    color: inherit;
+    font: inherit;
+  }
+}
+
+@layer components {
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .field {
+    @apply h-9 rounded-md border border-line-strong bg-surface px-2.5 text-[13.5px] outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/20 disabled:opacity-60;
+  }
+  .tbl {
+    @apply w-full border-collapse text-[13px];
+  }
+  .tbl th {
+    @apply sticky top-0 z-[1] border-b border-line bg-surface-2 px-3 py-2 text-left text-[11.5px] font-semibold tracking-wide text-muted uppercase;
+  }
+  .tbl td {
+    @apply border-b border-line px-3 py-2 align-top;
+  }
+  .tbl tbody tr:hover td {
+    background: color-mix(in oklab, var(--accent-soft) 45%, transparent);
+  }
+  .tbl .r {
+    @apply text-right;
+  }
+}
